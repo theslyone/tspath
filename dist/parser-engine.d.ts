@@ -17,12 +17,12 @@ export declare class ParserEngine {
      * @param {Array<string>} filter
      */
     setFileFilter(filter: Array<string>): void;
-    private validateProjectPath(projectPath);
+    private validateProjectPath;
     /**
      * Attempts to read the name property form package.json
      * @returns {string}
      */
-    private readProjectName();
+    private readProjectName;
     /**
      * Parse project and resolve paths
      */
@@ -69,7 +69,7 @@ export declare class ParserEngine {
      * @param {string} fileExtension - ".xxx" or "xxx
      * @returns {boolean}
      */
-    private matchExtension(fileExtension);
+    private matchExtension;
     /**
      * Recursively walking a directory structure and collect files
      * @param dir

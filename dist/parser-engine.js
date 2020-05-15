@@ -23,6 +23,7 @@
 
 =----------------------------------------------------------------= */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ParserEngine = void 0;
 let fs = require("fs");
 let path = require('path');
 let esprima = require("esprima");
