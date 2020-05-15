@@ -45,7 +45,7 @@ export class TSPath {
 		let args = process.argv.slice(2);
 		let param = args[0];
 		let filter = ["js"];
-		let force: boolean = true; //(yargs.force || yargs.f);
+		let force: boolean = (yargs.force || yargs.f);
 		let projectPath = process.cwd();
 		let compactOutput = yargs.preserve ? false : true;
 		let findResult = ParentFileFinder.findFile(projectPath, TS_CONFIG);
@@ -66,21 +66,22 @@ export class TSPath {
 
 		this.engine.compactMode = compactOutput;
 		this.engine.setFileFilter(filter);
+		scope.processPath(findResult.path);
 
-		if (force && findResult.fileFound) {
-			scope.processPath(findResult.path);
+		// if (force && findResult.fileFound) {
+		// 	scope.processPath(findResult.path);
 
-		} else if (findResult.fileFound) {
-			let confirm = new Confirm("Process project at: <"  + findResult.path +  "> ?")
-				.ask(function(answer) {
-					if (answer) {
-						scope.processPath(findResult.path);
-					}
-				});
+		// } else if (findResult.fileFound) {
+		// 	let confirm = new Confirm("Process project at: <"  + findResult.path +  "> ?")
+		// 		.ask(function(answer) {
+		// 			if (answer) {
+		// 				scope.processPath(findResult.path);
+		// 			}
+		// 		});
 
-		} else {
-			log(chalk.bold("No project root found!"));
-		}
+		// } else {
+		// 	log(chalk.bold("No project root found!"));
+		// }
 	}
 
 	private processPath(projectPath: string) {
