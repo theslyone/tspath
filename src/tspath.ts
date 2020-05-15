@@ -45,7 +45,7 @@ export class TSPath {
 		let args = process.argv.slice(2);
 		let param = args[0];
 		let filter = ["js"];
-		let force: boolean = (yargs.force || yargs.f);
+		let force: boolean = true; //(yargs.force || yargs.f);
 		let projectPath = process.cwd();
 		let compactOutput = yargs.preserve ? false : true;
 		let findResult = ParentFileFinder.findFile(projectPath, TS_CONFIG);
