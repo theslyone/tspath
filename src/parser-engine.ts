@@ -222,6 +222,8 @@ export class ParserEngine {
 	 * @param filename
 	 */
 	processFile(filename: string) {
+		if(!filename.endsWith('js')) return;
+		
 		this.nrFilesProcessed++;
 
 		let scope = this;
