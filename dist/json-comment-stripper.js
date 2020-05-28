@@ -39,7 +39,6 @@
 
 =---------------------------------------------------------------= */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.JsonCommentStripper = void 0;
 var JsonParserState;
 (function (JsonParserState) {
     JsonParserState[JsonParserState["None"] = 0] = "None";

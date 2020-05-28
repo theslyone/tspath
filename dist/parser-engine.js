@@ -23,7 +23,6 @@
 
 =----------------------------------------------------------------= */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ParserEngine = void 0;
 let fs = require("fs");
 let path = require('path');
 let esprima = require("esprima");
@@ -177,6 +176,8 @@ class ParserEngine {
      * @param filename
      */
     processFile(filename) {
+        if (!filename.endsWith('js'))
+            return;
         this.nrFilesProcessed++;
         let scope = this;
         let inputSourceCode = fs.readFileSync(filename, type_definitions_2.FILE_ENCODING);
